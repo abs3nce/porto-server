@@ -6,13 +6,13 @@ const mongoose = require("mongoose");
 const User = require("../models/model_user");
 
 router.post("/", (req, res, next) => {
-    console.log(`\n>> DATA from FRONTEND (RAW):\n`, req.body);
+    console.log(`\n>> USER DATA TO REGISTER:\n`, req.body);
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
     });
-    console.log(`\n>> DATA from FRONTEND (ready for storing):\n`, newUser);
+    console.log(`\n>> USER DATA READY TO STORE:\n`, newUser);
 
     newUser.save((err) => {
         if (err)
@@ -30,6 +30,8 @@ router.post("/", (req, res, next) => {
             user: newUser,
         });
     });
+
+    console.log(`\n>> USER DATA STORED`);
 });
 
 module.exports = router;
