@@ -22,10 +22,12 @@ app.use(express.json());
 //import routov
 const loginRoute = require("./routes/route_login");
 const registerRoute = require("./routes/route_register");
+const usersRoute = require("./routes/route_users");
 
 //middleware na pouzivanie tychto externych routes
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
+app.use("/users", usersRoute);
 
 //server listener
 port = process.env.port || 3000;
