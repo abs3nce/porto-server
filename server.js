@@ -22,11 +22,13 @@ app.use(express.json());
 //import routov
 const loginRoute = require("./routes/route_login");
 const registerRoute = require("./routes/route_register");
+const verifyloginRoute = require("./routes/route_verifylogin");
 const usersRoute = require("./routes/route_users");
 
 //middleware na pouzivanie tychto externych routes
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
+app.use("/verifylogin", verifyloginRoute);
 app.use("/users", usersRoute);
 
 //server listener

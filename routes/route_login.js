@@ -37,7 +37,10 @@ router.post("/", (req, res, next) => {
             { userID: user._id },
             "mojsupermegaultragigatutifrutisecretkey"
         );
-        res.status(200).json({ title: "Login successful", token: token });
+        res.status(200).json({
+            title: "Login successful",
+            userData: { username: user.username, _id: user._id, token: token },
+        });
     });
 });
 
