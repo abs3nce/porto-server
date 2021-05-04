@@ -6,9 +6,9 @@ require("dotenv/config"); //prepojenie .env kde je link na connection s databazo
 
 //pripojenie na db
 mongoose.connect(
-    process.env.DB_CONNECTION,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    () => {
+    process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true },
+    (err) => {
+        if (err) throw err;
         console.log("> Connected to DB");
     }
 );

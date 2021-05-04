@@ -1,16 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//takto vyzera struktura usera
 const userSchema = new Schema({
     username: {
         unique: true,
         type: String,
     },
     password: String,
-    email: {
-        unique: true,
-        type: String,
-    },
 });
 
 const User = mongoose.model("User", userSchema);
